@@ -50,7 +50,7 @@ def main():
 		print("[X] Error! Invalid domain or information not available!") 
 		exit(1)
 
-	json_data = json.loads('[{}]'.format(req.text.replace('}{', '},{')))
+	json_data = json.loads('[{}]'.format(req.text.encode('utf-8').replace('}{', '},{')))
 
 	for (key,value) in enumerate(json_data):
 		subdomains.append(value['name_value'])
